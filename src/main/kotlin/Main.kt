@@ -18,13 +18,14 @@ fun doPurchase(currentPurchase: Int) {
         currentDiscount = 100
     }
     if (purchaseSum > 10000) {
-        currentDiscount = currentPurchase * 5 / 100     //это 5%
+        currentDiscount = (currentPurchase * 5 + 50) / 100     //это 5%, + 50 - округление до целого
     }
 
     print("При вашей покупке на сумму $currentPurchase, учитывая предыдущие приобретения на $purchaseSum, скидка ")
     if (currentDiscount == 0) println("не положена!")
     else println("составляет $currentDiscount денег")
-    var addDiscount = (currentPurchase - currentDiscount + 50) / 100       //доп скидка меломану
+    var addDiscount = (currentPurchase - currentDiscount + 50) / 100       //доп скидка меломану (+50 - округление
+    // до целого )
     if (shopVisitsNumber > 1 && addDiscount > 0) {
         println("А за то, что Вы у нас свой парень, вот дополнительная скидочка в $addDiscount денег ")
     } else addDiscount = 0
